@@ -1,0 +1,199 @@
+html, body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+  background-color: #BA8A65;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.header-table-section {
+  display: flex;
+  flex-direction: row;
+  background-color: #255F38;
+  height: 60px;
+  width: calc(100% - 500px);
+  margin: 50px 200px 5px 230px;
+  border-radius: 100px;
+  box-shadow: 
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.folder-img {
+  width: 50px;  
+  height: 40px;
+  padding: 8px 10px 0px 15px;
+}
+
+.vendors-data-title {
+  font-family: "Rubik Spray Paint", sans-serif;
+  font-weight: 400;
+  color: white;
+  margin: 10px 0 0px 0px;
+}
+
+.home-nav {
+  margin-left: 140px;
+  margin-right: 30px;
+}
+
+.home-nav,
+.register-nav,
+.export-button {
+  border: none;
+  border-radius: 30px;
+  height: 40px;
+  width: 130px;
+  margin-top: 8px;
+  flex-shrink: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  background-color: white;
+  color: #255F38;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.export-button {
+  margin: 8px 0px 0px 30px;
+}
+
+.home-nav:hover,
+.register-nav:hover,
+.export-button:hover {
+  opacity: 0.5;
+}
+
+.table-wrapper {
+  width: calc(100% - 200);
+  margin: 50px 100px 0px 100px;
+  justify-content: center;
+}
+
+.vendor-table {
+  padding: 4px 4px;
+  border: none;
+  border-collapse: collapse;
+  box-shadow: 
+    rgba(0, 0, 0, 0.09) 0px 2px 1px, 
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, 
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, 
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, 
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.vendor-table th {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  white-space: nowrap;
+  padding: 8px 20px;
+  background-color: #255F38;
+  text-align: center;
+}
+
+.business-title,
+.age-title,
+.permit-title,
+.municipality-title,
+.product-title {
+  border-right: 1px solid white;
+}
+
+.vendor-table td {
+  word-break: break-word;
+  white-space: normal;
+}
+
+.business-title {
+  border-top-left-radius: 15px;
+}
+
+.business-title,
+.table-body td:nth-child(1) {
+  min-width: 200px;
+  width: auto;
+  max-width: none;
+  white-space: normal;
+  word-break: break-word;
+}
+
+
+.delete-th {
+  border-top-right-radius: 15px;
+}
+
+.vendor-table tr {
+  color: black;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 4px 0px 4px 0px;
+  text-align: justify;
+}
+
+.business-td {
+  text-align: left;
+  padding-left: 8px;
+}
+
+.stall-title {
+  text-align: center;
+  border: 1px solid white;
+  border-top: none;
+}
+
+.daily-th,
+.waste-th {
+  border: 1px solid white;
+  border-bottom: none;
+}
+
+.sanitary-td {
+  text-align: center;
+  padding-left: 0px;
+}
+tbody tr {
+  background-color: #E7DECA;
+}
+
+tbody td {
+  border-right: 1px solid #f8f8f8;
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgb(245, 245, 245);
+}
+
+tbody tr:nth-child(odd) {
+  background-color: white;
+}
+
+.delete-buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 40px; /* align buttons with table rows */
+}
+
+tbody td:last-child {
+  background-color: white;
+  border-right: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.delete-button {
+  padding: 12px 30px;
+  background-color: #A31D1D;
+  font-size: 18px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+

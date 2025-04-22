@@ -1,0 +1,258 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    background-color: #FBFBFB;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .back-home-page {
+    position: fixed;
+    border: none;
+    color: white;
+    background-color: #1D976C;
+    font-size: 20px;
+    font-weight: bold;
+    width: 140px;
+    padding: 5px 5px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    margin-left: 30px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+  
+  .back-home-page:hover {
+    opacity: 0.8;
+  }
+  
+  .back-icon {
+    font-size: 30px;
+    padding-left: 5px;
+    align-items: center;
+    font-weight: bold;
+  }
+  
+  .form-container {
+    background-color: white;
+    width: calc(100% - 300px);
+    margin: 30px 200px;
+    margin-top: 30px;
+    height: 675px;
+    box-sizing: border-box; 
+    border-radius: 50px;
+    box-shadow: 
+      rgba(0, 0, 0, 0.4) 0px 2px 4px, 
+      rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
+      rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    position: relative;
+  }
+  
+  .image-details-container {
+    position: absolute;
+    background: linear-gradient(to bottom, #1D976C, #FFFFFF, #93F9B9);
+    width: 570px;
+    height: 675px;
+    top: 0; 
+    left: 0; 
+    padding: 0;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+  }
+  
+  .image-details-container h1 {
+    width: 380px;
+    font-size: 30px;
+    color: white;
+    padding-left: 70px;
+  }
+  
+  .image-details-container p {
+    color: white;
+    font-size: 15px;
+    width: 400px;
+    padding-left: 70px;
+    margin-top: -16px;
+    font-family: "Inter" sans-serif;
+  }
+  
+  .image-details-container img {
+    width: 500px;
+    height: 400px;
+    padding-left: 30px;
+  }
+  
+  .vendors-form-container {
+    position: absolute;
+    background-color: #FAF1E6;
+    width: 700px;
+    height: 675px; 
+    right: 0;
+    top: 0;
+    margin-left: 570px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+  }
+  
+  .vendors-form-container h1 {
+    color: black;
+    margin-left: 50px;
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    font-weight: bolder;
+    margin-bottom: 10px;
+  }
+  
+  .vendor-detail-ul,
+  .compliance-check-ul {
+    margin-left: 50px;
+    font-weight: 500;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  
+  .business-name-input,
+  .permit-number-input, 
+  .owner-age-input {
+    border: none;
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    border-bottom: 2px solid #757575;
+    padding: 8px 4px;
+    background: transparent;
+    outline: none;
+    margin-left: 90px;
+    width: 450px;
+    margin-bottom: 20px;
+  }
+  
+  .owner-age-input::-webkit-outer-spin-button,
+  .owner-age-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .business-name-input:focus,
+  .permit-number-input:focus,
+  .product-type-select:focus,
+  .owner-age-input:focus,
+  .municipality-select:focus {
+    border-bottom: 3px solid #1D976C;
+  }
+  
+  .municipality-select {
+    margin-bottom: 3%;
+  }
+  
+  .product-type-select,
+  .municipality-select {
+    border: none;
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    border-bottom: 2px solid #757575;
+    padding: 8px 4px;
+    padding-left: 0;
+    background: transparent;
+    outline: none;
+    margin-left: 90px;
+    width: 458px;
+    color: #757575;
+    cursor: pointer;
+  }
+  
+  .product-type-select:valid,
+  .municipality-select:valid {
+    color: black;
+  }
+  
+  .compliance-check-container {
+    display: flex;
+    flex-direction: row;
+    gap: 220px;
+    margin-top: 5px;
+  }
+  
+  .compliance-check-ul {
+    margin-bottom: 10px;
+  }
+  
+  .sanitary-title {
+    margin-left: 95px;
+  }
+  
+  .cleanliness-title {
+    margin-left: 113px;
+  }
+  
+  .sanitary-option {
+    margin-left: 90px;
+  }
+  
+  
+  .sanitary-option,
+  .cleanliness-option {
+    font-family: "Inter" sans-serif;
+    font-size: 15px;
+    color: #757575;
+    border: none;
+  }
+  
+  .sanitary-option input,
+  .cleanliness-option input {
+    cursor: pointer;
+  }
+  
+  
+  .register-button {
+    border: none;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    width: 300px;
+    height: 50px;
+    margin-top: 30px;
+    margin-left: 80px;
+    background-color: #1D976C;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  
+  .register-button:hover {
+    opacity: 0.8;
+  }
+  
+  .table-button {
+    border: none;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    width: 200px;
+    height: 50px;
+    margin-left: 400px;
+    margin-top: -50px;
+    border-radius: 5px;
+    color: #1D976C;
+    background-color: white;
+    border: 2px solid #1D976C;
+    cursor: pointer;
+    position: absolute;
+  }
+  
+  .table-button:hover {
+    color: white;
+    background-color: #1D976C;
+  }
+  
+  
+  
