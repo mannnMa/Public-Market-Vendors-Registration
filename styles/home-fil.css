@@ -1,0 +1,128 @@
+.header-section {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    background-color: #FBFBFB;
+    height: 55px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .register-button,
+  .language-link {
+    flex-shrink: 0;
+    margin-top: 10px;
+    height: 35px;
+    border: none;
+    border-radius: 30px;
+    padding: 3px 15px 3px 15px;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    background-color: #88D66C;
+    color: #2C2C2C;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color, color 0.15s;
+  }
+
+  .register-button {
+    margin-left: 20px;
+    margin-left: 20px;
+  }
+
+  .language-link{
+    margin-right: 0px;
+    padding-bottom: 0;
+    margin-left: 20px;
+  }
+  
+  .register-button:hover,
+  .language-link:hover {
+    background-color: #1D976C;
+    color: white;
+  }
+  
+  .cart-img {
+    width: 50px;
+    height: 40px;
+    position: fixed;
+    margin: 5px 0 15px 15px;
+  }
+  
+  .public-market-title{
+    position: fixed;
+    font-family: "Rubik Spray Paint", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: #255F38;
+    margin: -10px 0 10px 65px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .header-a-tag {
+    align-items: center;
+    padding-top: 15px;
+    padding-left: 600px;
+  }
+   
+  .home-link,
+  .service-link,
+  .about-link {
+    color: #A0937D;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0;
+    transition: color 0.15s;
+    cursor: pointer;
+  }
+
+  .home-link {
+    margin-left: 60px;
+  }
+  
+  .home-link:hover, 
+  .service-link:hover,
+  .about-link:hover {
+    color: #74512D;
+  }
+  
+  .public-market-img {
+    width: calc(100% - 40px); 
+    margin-top: 55px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 620px;
+    clip-path: polygon(
+      0% 0%, 100% 0%, 100% 97%, 90% 100%, 80% 97%, 
+      70% 100%, 60% 97%, 50% 100%, 40% 97%, 30% 100%, 
+      20% 97%, 10% 100%, 0% 97%);
+    border-radius: 200px;
+  }
+  
+  .arrow-scrolldown-img {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin-top: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: pointdown 1000ms infinite alternate-reverse;
+  }
+  
+  @keyframes pointdown {
+    0% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(16px);
+    }
+  }
+  

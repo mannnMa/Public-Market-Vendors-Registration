@@ -1,0 +1,82 @@
+.services-section {
+  margin-top: 55px;
+  width: calc(100% - 40px);
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 645px;
+  border-radius: 50px;
+  background-image: linear-gradient(to top, #1D976C, #93F9B9);
+  position: relative;
+  scroll-margin-top: 60px;
+}
+
+.services-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.services-title{
+  color: #1D1616;
+  font-family: "Lilita One", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.fruits-veges-box, 
+.meats-box,
+.fish-seafood-box {
+  width: 360px;
+  height: 480px;
+  background-color: white;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; 
+  border-radius: 25% 10%;
+  border: 1px solid #FDFAF6;
+  margin-right: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.fruits-veges-box:hover,
+.meats-box:hover,
+.fish-seafood-box:hover {
+  transform: scale(1.05);
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.fish-seafood-box {
+  margin-right: 0;
+}
+
+.fruits-veges-img, 
+.meats-img, 
+.fish-seafood-img {
+  display: block;
+  width: 280px;
+  height: 300px;
+  padding: 30px 20px 20px 40px;
+  border-radius: 50px;
+}
+
+.fruits-veges-box-title, 
+.meats-title,
+.fish-seafood-title {
+  font-family: "Poppins", sans-serif;
+  font-size: bold;
+  color: black;
+  margin-top: -16px;
+  margin-left: 40px;
+}
+
+.fruits-veges-box-info, 
+.meats-info, 
+.fish-seafood-info {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  margin-top: -12px;
+  margin-left: 40px;
+  margin-right: 40px;
+  text-align: justify;
+}
