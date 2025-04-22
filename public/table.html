@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Market Table</title>
+
+    <!--FONT LINKS-->
+      <!--POPPINS FONT-->
+      <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+      <!--INTER FONTS-->
+      <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+
+      <!--Rubik Spray Paint FONTS-->
+      <link href='https://fonts.googleapis.com/css?family=Rubik Spray Paint' rel='stylesheet'>
+
+    <!--CSS LINKS-->
+    <link rel="stylesheet" href="../styles/extension-page/table.css">
+
+    <!--JavaScript library SheetJS (xlsx)-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  </head>
+
+  <body>
+    <!--HEADER OF THE TITLE-->
+    <header class="header-table-section">
+      <img class="folder-img" src="../images/icons/folder.png" alt="folder image">
+      <h1 class="vendors-data-title">VENDORS DATA</h1>
+      <form action="../index.html">
+        <button type="submit" class="home-nav">Home</button>
+      </form>
+      <form action="./form.html">
+        <button type="submit" class="register-nav">Register</button>
+      </form>
+
+      <!--export button here-->
+      <button onclick="exportToExcel()" class="export-button">Export</button>
+    </header>
+
+    <!--PUBLIC MARKET TABLE SECTION-->
+    <div class="table-wrapper">
+      <table class="vendor-table">
+        <thead class="thead-vendors-data">
+          <tr>
+            <th class="business-title" rowspan="2">Business Name</th>
+            <th class="age-title" rowspan="2">Owner's Age</th>
+            <th class="permit-title" rowspan="2">Permit Number</th>
+            <th class="municipality-title" rowspan="2">Municipality</th>
+            <th class="product-title" rowspan="2">Product Type</th>
+            <th class="sanitary-title" rowspan="2">Sanitary Practices</th>
+            <th class="stall-title" colspan="2">Stall Cleanliness</th>
+            <th class="delete-th" rowspan="2">Action</th> <!--For delete button-->
+          </tr>
+          <tr>
+            <th class="daily-th">Daily Cleaning</th>
+            <th class="waste-th">Waste Disposal</th>
+          </tr>
+        </thead>
+        <tbody class="table-body">
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      const tableBody = document.querySelector(".table-body"); //selecting the table body for displaying the data
+      let vendorsData = JSON.parse(localStorage.getItem('vendorsDataEN')) || []; // get the data in English Ver.
+
+      // Function to render the table based on vendorDataList.
+        function renderTable() {
+          //Reload latest data every time before rendering
+          let vendorsData = JSON.parse(localStorage.getItem('vendorsDataEN')) || [];
+          tableBody.innerHTML = "";
+
+          //displaying the check symbol to selected cell
+          vendorsData.forEach((data, index) => {
+            const dailyChecked = data.cleanliness?.includes("Daily Cleaning") ? "&#10004;" : ""; //check symbol entity
+            const wasteChecked = data.cleanliness?.includes("Waste Disposal") ? "&#10004;" : "";
+            
+
+            //looping the row cell when submit register
+            const row = document.createElement("tr");
+            row.innerHTML = `
+              <td class="business-td">${data.businessName || ''}</td>
+              <td style="text-align: center;">${data.ownersAge || ''}</td>
+              <td style="text-align: center;">${data.permitNumber || ''}</td>
+              <td style="text-align: center;">${data.municipality || ''}</td>
+              <td style="text-align: center;">${data.productType || ''}</td>
+              <td style="text-align: center;" class="sanitary-td">${data.sanitary || ''}</td>
+              <td style="text-align: center;">${dailyChecked}</td>
+              <td style="text-align: center;">${wasteChecked}</td>
+              <td><button class="delete-button" data-index="${index}">Delete</button></td> 
+            `;
+            tableBody.appendChild(row);
+
+            // Attach delete button handler and alert promt
+            row.querySelector(".delete-button").addEventListener("click", () => {
+              if (confirm("Are you sure you want to delete this data?")) { 
+                let currentData = JSON.parse(localStorage.getItem('vendorsDataEN')) || []; //will display the current data after removing
+                currentData.splice(index, 1);
+                localStorage.setItem('vendorsDataEN', JSON.stringify(currentData));
+                renderTable(); // Re-render table after deletion
+              }
+            });
+          });
+        }
+        renderTable(); // Initial rendering
+
+        //button export to excel
+        function exportToExcel() {
+
+        // Get the vendor data directly from localStorage
+        const vendorDataList = JSON.parse(localStorage.getItem("vendorsDataEN")) || [];
+
+        // Convert the data to match in excel format
+        const formattedData = vendorDataList.map(data => ({
+          "Business Name": data.businessName || '',
+          "Owner's Age": data.ownersAge || '',
+          "Permit Number": data.permitNumber || '',
+          "Municipality": data.municipality || '',
+          "Product Type": data.productType || '',
+          "Sanitary Practices": data.sanitary || '',
+          "Daily Cleaning": data.cleanliness?.includes("Daily Cleaning") ? "✔" : '',
+          "Waste Disposal": data.cleanliness?.includes("Waste Disposal") ? "✔" : ''
+        }));
+
+        // Create a worksheet from the formatted data
+        const worksheet = XLSX.utils.json_to_sheet(formattedData);
+
+        // Create a new workbook and append the worksheet
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Vendors Data");
+
+        // Export the Excel file
+        XLSX.writeFile(workbook, "vendors_data.xlsx");
+      }
+    </script>
+  </body>
+</html>

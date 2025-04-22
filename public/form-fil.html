@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form sa Pag-Rehistro</title>
+
+    <!--FONT LINKS-->
+      <!--POPPINS FONT-->
+      <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+      <!--INTER FONTS-->
+      <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+
+    <!--CSS LINKS-->
+    <link rel="stylesheet" href="../styles/extension-page/form-fil.css">
+  </head>
+    
+  <body>
+    <!--BACK HOME PAGE BUTTON-->
+    <form action="../index-fil.html">
+      <button class="back-home-page" type="submit">
+        <span class="back-icon">&#8249;</span>
+        Bumalik
+      </button>
+    </form>
+
+    <!--FORM SECTION-->
+    <section>
+      <div class="form-container"> 
+        <!--Image Details Container-->
+        <div class="image-details-container">
+          <h1>Rehistrohan sa Pampublikong Pamilihan</h1>
+          <p>Itabi at pamahalaan ang digital record<br>ng tindero ng mabilis.</p>
+          <img src="../images/Vendor-woman-image.png" alt="vendor Image">
+        </div>
+
+        <!--Vendors form Container-->
+        <div class="vendors-form-container">
+          <h1>Form sa Pag-Rehistro:</h1>
+          <!--Vendors form Input-->
+            <ul class="vendor-detail-ul">
+              <li>Detalye ng Supplier</li>
+            </ul>
+
+          <!--Vendor Details Input-->
+          <form action="./table-fil.html" id="registerForm">
+            <div class="vendor-details-container">
+              <!--Business Name Input-->
+              <div>
+                <input class="business-name-input" type="text" placeholder="Pangalan ng Tindahan" required maxlength="100">
+              </div>
+              <!-- Owner's Age Input-->
+              <div>
+                <input class="owner-age-input" type="number" placeholder="Edad ng May-Ari"  min="18" max="120" maxlength="100" required>
+              </div>
+              <!--Permit Number Input-->
+              <div>
+                <input class="permit-number-input" type="text" minlength="4" maxlength="6" placeholder="Numero ng Permit" required>
+              </div>
+              <!--Region Selector-->
+              <div>
+                <select class="municipality-select" required>
+                  <option value="" disabled selected hidden>Munisipalidad (NCR)</option>
+                  <option value="1">Caloocan</option>
+                  <option value="2">Las Piñas</option>
+                  <option value="3">Makati</option>
+                  <option value="4">Malabon</option>
+                  <option value="5">Mandaluyong</option>
+                  <option value="6">Manila</option>
+                  <option value="7">Marikina</option>
+                  <option value="8">Muntinlupa</option>
+                  <option value="9">Navotas</option>
+                  <option value="10">Parañaque</option>
+                  <option value="11">Pasay</option>
+                  <option value="12">Pasig</option>
+                  <option value="13">Pateros</option>
+                  <option value="14">Quezon City</option>
+                  <option value="15">San Juan</option>
+                  <option value="16">Taguig</option>
+                  <option value="17">Valenzuela</option>
+                </select>
+                
+              </div>
+              <!--Product Type Input-->
+              <div>
+                <select class="product-type-select" required>
+                  <option value="" disabled selected hidden>Tipo ng Product</option>
+                  <option value="1">Prutas</option>
+                  <option value="2">Gulay</option>
+                  <option value="3">Karne</option>
+                  <option value="4">Isda</option>
+                  <option value="5">Seafood</option>
+                </select>
+              </div>
+            </div>
+
+            <!--Compliance Check-->
+            <ul class="compliance-check-ul">
+              <li>Pagsusuri sa Pagsunod</li>
+            </ul>
+              <label class="sanitary-title">Pagsunod sa Kalinasan:</label>
+              <label class="cleanliness-title">Kalinisan ng Tindahan:</label>
+
+            <!--Compliance Check Button-->
+            <div class="compliance-check-container">
+              <!--Sanitary Practice Section-->
+              <div class="sanitary-option">
+                <label><input type="radio" name="sanitary" value="Mabuti" required>Mabuti</label><br>
+                <label><input type="radio" name="sanitary" value="Patas" required>Patas</label><br>
+                <label><input type="radio" name="sanitary" value="Di Malinis" required>Di Malinis</label>
+              </div>
+
+              <!--Stall Cleanliness Section-->
+              <div class="cleanliness-option">
+                <label><input type="checkbox" name="cleanliness[]" value="Daily Cleaning">Araw-araw na Paglilinis</label><br>
+                <label><input type="checkbox" name="cleanliness[]" value="Waste Disposal">Pagtapon ng Basura</label>
+              </div>
+            </div>
+             
+            <!--BUTTON INTERACTION TO TABLE-->
+            <div class="button-action">
+              <!--REGISTER BUTTON-->
+              <button class="register-button" type="submit">Mag Rehistro</button>
+            </div>
+          </form>
+
+          <!--TABLE BUTTON-->
+          <form action="./table-fil.html" target="_blank">
+            <button class="table-button" type="submit">Tignan ang Datos<span class="greater-than-arrow"></span></button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!--JS of submission button for Vendors Register-->
+    <script>
+      document.getElementById("registerForm").addEventListener("submit", function(event) {
+        event.preventDefault(); //Prevent the form from submitting
+
+        //vendors Details Input 
+        const businessName = document.querySelector(".business-name-input").value;
+        const ownersAge = document.querySelector(".owner-age-input").value;
+        const permitNumber = document.querySelector(".permit-number-input").value;
+        // Municipality Selector
+        const municipalitySelect = document.querySelector(".municipality-select");
+        const municipality = municipalitySelect.options[municipalitySelect.selectedIndex].textContent;
+        // Product Type Selector
+        const productTypeSelect = document.querySelector(".product-type-select");
+        const productType = productTypeSelect.options[productTypeSelect.selectedIndex].textContent; // Store the Text Content
+
+        //Compliance Check button
+        const sanitary = document.querySelector('input[name="sanitary"]:checked')?.value;
+        const cleanlinessElements = document.querySelectorAll('input[name="cleanliness[]"]:checked');
+        const cleanliness = Array.from(cleanlinessElements).map(e => e.value);
+      
+        //object of the data input 
+        const vendorData = {
+          businessName,
+          ownersAge,
+          permitNumber,
+          municipality,
+          productType,
+          sanitary: sanitary || '',
+          cleanliness
+        };
+
+         // Save to localStorage before displaying to Filipino Version Table
+        let vendorsData = JSON.parse(localStorage.getItem('vendorsDataFIL')) || [];
+        vendorsData.push(vendorData); 
+        localStorage.setItem('vendorsDataFIL', JSON.stringify(vendorsData));
+
+        //promt success message
+        alert("Vendor registered successfully!");
+        document.getElementById("registerForm").reset();
+      });
+    </script>
+  </body>
+</html>
